@@ -46,5 +46,6 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
+// listen on port 5000 or given by provider
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);

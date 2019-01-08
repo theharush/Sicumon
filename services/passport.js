@@ -1,10 +1,13 @@
+// require node modules
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const mongoose = require("mongoose");
-const keys = require("../config/keys");
 
+// require helpers
+const keys = require("../config/keys");
 const User = mongoose.model("users");
 
+// set passport serialization methods
 passport.serializeUser((user, done) => {
   done(null, user.id);
 });
@@ -15,6 +18,7 @@ passport.deserializeUser((id, done) => {
   });
 });
 
+// serve strategies to passport
 passport.use(
   new GoogleStrategy(
     {
